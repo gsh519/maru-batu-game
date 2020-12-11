@@ -1,4 +1,5 @@
 let turn = '◯';
+const td = document.querySelectorAll('.td');
 
 const mark = (e) => {
   if (e.target.innerHTML == '') {
@@ -15,13 +16,21 @@ const changeTurn = () => {
   }
 }
 
+
 const reset = () => {
-  const td = document.querySelectorAll('.td');
   for (let i = 0; i < td.length; i++) {
     if (td[i].innerHTML) {
       td[i].innerHTML = "";
     }
   }
+}
+
+const setMaru = () => {
+  turn = '◯';
+}
+
+const setBatu = () => {
+  turn = '✕';
 }
 
 document.getElementById('b1').addEventListener('click', mark);
@@ -35,3 +44,6 @@ document.getElementById('b8').addEventListener('click', mark);
 document.getElementById('b9').addEventListener('click', mark);
 
 document.getElementById('reset').addEventListener('click', reset);
+
+document.getElementById('maru').addEventListener('click', setMaru)
+document.getElementById('batu').addEventListener('click', setBatu)
